@@ -1,5 +1,6 @@
 //Joshua Rizek
 
+const bodyParser = require('body-parser')
 const express = require('express')
 const logger = require('morgan')
 const PORT = process.env.PORT || 3000
@@ -61,6 +62,6 @@ app.put('/users/:id', (req, res) => {
 app.delete('/users/:id', (req, res) => {
     const id = req.params.id
     const userIndex = users.findIndex(user => user.id === id)
-    users.splice(userIndex, 1, user)
+    users.splice(userIndex, 1)
     res.json(users)
 })
